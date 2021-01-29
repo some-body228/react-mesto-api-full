@@ -14,14 +14,22 @@ class api {
   
     getInitialCards() {
       return fetch(`${this._url}/cards`, {
-        headers: this._headers,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json",
+          
+        },
         credentials: 'include',
       }).then(this._getResponseData);
     }
   
     getName() {
       return fetch(`${this._url}/users/me`, {
-        headers: this._headers,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json",
+          
+        },
         credentials: 'include',
       }).then(this._getResponseData);
     }
@@ -29,7 +37,11 @@ class api {
     patchAvatar(avatarLink) {
       return fetch(`${this._url}/users/me/avatar`, {
         method: "PATCH",
-        headers: this._headers,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json",
+          
+        },
         credentials: 'include',
         body: JSON.stringify({
           avatar: avatarLink,
@@ -39,7 +51,11 @@ class api {
     patchName(data) {
       return fetch(`${this._url}/users/me`, {
         method: "PATCH",
-        headers: this._headers,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json",
+          
+        },
         credentials: 'include',
         body: JSON.stringify(data),
       }).then(this._getResponseData);
@@ -48,7 +64,11 @@ class api {
     postCard(data) {
       return fetch(`${this._url}/cards`, {
         method: "POST",
-        headers: this._headers,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json",
+          
+        },
         credentials: 'include',
         body: JSON.stringify(data),
       }).then(this._getResponseData);
@@ -57,14 +77,22 @@ class api {
     deleteCard(id) {
       return fetch(`${this._url}/cards/${id}`, {
         method: "DELETE",
-        headers: this._headers,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json",
+          
+        },
         credentials: 'include',
       }).then(this._getResponseData);
     }
     likeCard(id) {
       return fetch(`${this._url}/cards/likes/${id}`, {
         method: "PUT",
-        headers: this._headers,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json",
+          
+        },
         credentials: 'include',
       }).then(this._getResponseData);
     }
@@ -72,7 +100,11 @@ class api {
     dislikeCard(id) {
       return fetch(`${this._url}/cards/likes/${id}`, {
         method: "DELETE",
-        headers: this._headers,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json",
+          
+        },
         credentials: 'include',
       }).then(this._getResponseData);
     }
@@ -81,7 +113,11 @@ class api {
       console.log(data);
       return fetch(`${this._url}/signup`, {
         method: "POST",
-        headers: this._headers,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json",
+          
+        },
         credentials: 'include',
         body: JSON.stringify(data),
       }).then(this._getResponseData);
@@ -89,7 +125,11 @@ class api {
     login(data) {
       return fetch(`${this._url}/signin`, {
         method: "POST",
-        headers: this._headers,
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          "Content-Type": "application/json",
+          
+        },
         credentials: 'include',
         body: JSON.stringify(data),
       }).then(this._getResponseData);
@@ -108,7 +148,7 @@ class api {
   const mainApi = new api({
     baseUrl: "https://api.subdomain.students.nomoredomains.rocks",
     headers: {
-      authorization: "8e87a5dc-6c3c-4389-85a0-676a9403f4b5",
+      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
       "Content-Type": "application/json",
       
     },
