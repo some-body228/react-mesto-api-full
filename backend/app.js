@@ -24,7 +24,7 @@ const options = {
 
 const { PORT = 3000 } = process.env;
 const app = express();
-app.use(cors(options))
+app.use("*", cors(options))
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());
