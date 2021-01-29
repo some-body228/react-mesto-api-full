@@ -11,7 +11,6 @@ class Auth {
         return Promise.reject(new Error(`Ошибка: ${res.status}`));
       }
     register(data) {
-      console.log(data);
       return fetch(`${this._url}/signup`, {
         method: "POST",
         headers: this._headers,

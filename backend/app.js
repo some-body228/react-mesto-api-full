@@ -14,7 +14,7 @@ const auth = require("./middleware/auth")
 const options = {
   origin: [
   'http://localhost:8080',
-  'https://https://nomoredomains.students.nomoredomains.rocks',
+  'https://nomoredomains.students.nomoredomains.rocks',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
   preflightContinue: false,
