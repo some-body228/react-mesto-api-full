@@ -12,7 +12,7 @@ cardRouter.get("/cards", cardsGet);
 cardRouter.post("/cards",celebrate(
   {body: Joi.object().keys({
     name: Joi.string().required().min(2),
-    link: Joi.string().required().email()
+    link: Joi.string().required()
   })}), cardCreate);
 cardRouter.delete("/cards/:id", cardDelete);
 cardRouter.put("/cards/:id/likes", addLike);

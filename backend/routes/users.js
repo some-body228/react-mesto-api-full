@@ -18,11 +18,11 @@ userRouter.patch("/users/me", celebrate(
   {body: Joi.object().keys({
     name: Joi.string().required().min(2),
     about: Joi.string().required().min(3),
-    avarat: Joi.string().required().email()
+    avarat: Joi.string().required()
   })}), updateUsers);
 userRouter.patch("/users/me/avatar",celebrate(
   {body: Joi.object().keys({
-    avarat: Joi.string().required().email()
+    avarat: Joi.string().required()
   })}), updateAvatar);
 
 
