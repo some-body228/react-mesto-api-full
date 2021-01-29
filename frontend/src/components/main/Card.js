@@ -3,7 +3,9 @@ import { CurrentUserContext } from "../../context/CurrentUserContext.js";
 function Card(props) {
   const currentUser = React.useContext(CurrentUserContext);
   const isOwn = currentUser.id === props.curCard.owner._id;
-  const isLiked = props.curCard.likes.some((i) => i._id == currentUser.id);
+  console.log(props.curCard)
+  console.log(currentUser)
+  const isLiked = props.curCard.likes.some((i) => i._id === currentUser.id);
   function handleLikeClick() {
     props.onCardLike(props.curCard);
   }
