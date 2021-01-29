@@ -31,6 +31,10 @@ mongoose.connect("mongodb://localhost:27017/mestodb", {
 
 app.use(requestLogger)
 
+app.use((req, res, next)=>{
+  res.header("Access-Control-Allow-Origin", "https://api.subdomain.students.nomoredomains.rocks")
+  next()
+})
 app.post("/signin", celebrate(
   {body: Joi.object().keys({
     email: Joi.string().required().email(),
@@ -47,7 +51,6 @@ app.use("/", userRouter);
 app.use("*", (req, res) => {
   res.status(404).send({ message: "Запрашиваемый ресурс не найден" });
 });
-
 app.use(errorLogger)
 
 app.use(errors())

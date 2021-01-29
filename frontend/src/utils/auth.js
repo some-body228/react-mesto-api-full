@@ -37,7 +37,7 @@ class Auth {
   }
 
   const auth = new Auth({
-    baseUrl: "https://api.subdomain.nomoredomains.rocks.students.nomoredomains.rocks",
+    baseUrl: "https://api.subdomain.students.nomoredomains.rocks",
     headers: {
       "Content-Type": "application/json",
     },

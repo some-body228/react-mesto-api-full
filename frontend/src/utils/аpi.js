@@ -95,7 +95,7 @@ class api {
     }
   }
   const mainApi = new api({
-    baseUrl: "https://api.subdomain.nomoredomains.rocks.students.nomoredomains.rocks",
+    baseUrl: "https://api.subdomain.students.nomoredomains.rocks",
     headers: {
       authorization: "8e87a5dc-6c3c-4389-85a0-676a9403f4b5",
       "Content-Type": "application/json",
