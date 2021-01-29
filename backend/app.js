@@ -11,9 +11,20 @@ const cors = require("cors")
 const mongoose = require("mongoose");
 const auth = require("./middleware/auth")
 
+const options = {
+  origin: [
+  'http://localhost:8080',
+  'https://https://nomoredomains.students.nomoredomains.rocks',
+  ],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  preflightContinue: false,
+  optionsSuccessStatus: 204,
+  allowedHeaders: ['Content-Type', 'origin', 'Authorization'],
+  credentials: true,}
+
 const { PORT = 3000 } = process.env;
 const app = express();
-app.use(cors())
+app.use(cors(options))
 
 const bodyParser = require("body-parser");
 app.use(bodyParser.json());

@@ -15,12 +15,14 @@ class api {
     getInitialCards() {
       return fetch(`${this._url}/cards`, {
         headers: this._headers,
+        credentials: 'include',
       }).then(this._getResponseData);
     }
   
     getName() {
       return fetch(`${this._url}/users/me`, {
         headers: this._headers,
+        credentials: 'include',
       }).then(this._getResponseData);
     }
   
@@ -28,6 +30,7 @@ class api {
       return fetch(`${this._url}/users/me/avatar`, {
         method: "PATCH",
         headers: this._headers,
+        credentials: 'include',
         body: JSON.stringify({
           avatar: avatarLink,
         }),
@@ -37,6 +40,7 @@ class api {
       return fetch(`${this._url}/users/me`, {
         method: "PATCH",
         headers: this._headers,
+        credentials: 'include',
         body: JSON.stringify(data),
       }).then(this._getResponseData);
     }
@@ -45,6 +49,7 @@ class api {
       return fetch(`${this._url}/cards`, {
         method: "POST",
         headers: this._headers,
+        credentials: 'include',
         body: JSON.stringify(data),
       }).then(this._getResponseData);
     }
@@ -53,12 +58,14 @@ class api {
       return fetch(`${this._url}/cards/${id}`, {
         method: "DELETE",
         headers: this._headers,
+        credentials: 'include',
       }).then(this._getResponseData);
     }
     likeCard(id) {
       return fetch(`${this._url}/cards/likes/${id}`, {
         method: "PUT",
         headers: this._headers,
+        credentials: 'include',
       }).then(this._getResponseData);
     }
   
@@ -66,6 +73,7 @@ class api {
       return fetch(`${this._url}/cards/likes/${id}`, {
         method: "DELETE",
         headers: this._headers,
+        credentials: 'include',
       }).then(this._getResponseData);
     }
   
@@ -74,6 +82,7 @@ class api {
       return fetch(`${this._url}/signup`, {
         method: "POST",
         headers: this._headers,
+        credentials: 'include',
         body: JSON.stringify(data),
       }).then(this._getResponseData);
     }
@@ -81,6 +90,7 @@ class api {
       return fetch(`${this._url}/signin`, {
         method: "POST",
         headers: this._headers,
+        credentials: 'include',
         body: JSON.stringify(data),
       }).then(this._getResponseData);
     }
@@ -91,6 +101,7 @@ class api {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
+        credentials: 'include',
       }).then(this._getResponseData);
     }
   }
@@ -99,6 +110,7 @@ class api {
     headers: {
       authorization: "8e87a5dc-6c3c-4389-85a0-676a9403f4b5",
       "Content-Type": "application/json",
+      
     },
   });
   export default mainApi
