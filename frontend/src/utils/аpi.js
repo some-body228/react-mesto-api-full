@@ -15,7 +15,7 @@ class api {
     getInitialCards() {
       return fetch(`${this._url}/cards`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
           
         },
@@ -26,7 +26,7 @@ class api {
     getName() {
       return fetch(`${this._url}/users/me`, {
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
           
         },
@@ -38,7 +38,7 @@ class api {
       return fetch(`${this._url}/users/me/avatar`, {
         method: "PATCH",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
           
         },
@@ -52,7 +52,7 @@ class api {
       return fetch(`${this._url}/users/me`, {
         method: "PATCH",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
           
         },
@@ -65,7 +65,7 @@ class api {
       return fetch(`${this._url}/cards`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
           
         },
@@ -78,7 +78,7 @@ class api {
       return fetch(`${this._url}/cards/${id}`, {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
           
         },
@@ -89,7 +89,7 @@ class api {
       return fetch(`${this._url}/cards/likes/${id}`, {
         method: "PUT",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
           
         },
@@ -101,7 +101,7 @@ class api {
       return fetch(`${this._url}/cards/likes/${id}`, {
         method: "DELETE",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
           
         },
@@ -114,7 +114,7 @@ class api {
       return fetch(`${this._url}/signup`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
           
         },
@@ -126,7 +126,7 @@ class api {
       return fetch(`${this._url}/signin`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+          authorization: `Bearer ${localStorage.getItem('jwt')}`,
           "Content-Type": "application/json",
           
         },
@@ -139,7 +139,7 @@ class api {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${token}`,
+          authorization: `Bearer ${token}`,
         },
         credentials: 'include',
       }).then(this._getResponseData);
@@ -148,7 +148,7 @@ class api {
   const mainApi = new api({
     baseUrl: "https://api.subdomain.students.nomoredomains.rocks",
     headers: {
-      Authorization: `Bearer ${localStorage.getItem('jwt')}`,
+      authorization: `Bearer ${localStorage.getItem('jwt')}`,
       "Content-Type": "application/json",
       
     },
