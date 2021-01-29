@@ -15,7 +15,7 @@ cardRouter.post("/cards",celebrate(
     link: Joi.string().required()
   })}), cardCreate);
 cardRouter.delete("/cards/:id", cardDelete);
-cardRouter.put("/cards/:id/likes", addLike);
-cardRouter.delete("/cards/:id/likes", removeLike);
+cardRouter.put("/cards/likes/:id", addLike);
+cardRouter.delete("/cards/likes/:id", removeLike);
 
 module.exports = cardRouter;
