@@ -6,6 +6,7 @@ const addLike = (req, res, next) => {
     { $addToSet: { likes: req.user._id } },
     { new: true }
   )
+  .populate('owner')
     .then((card) => {
       if(!card){
         throw new NotFoundError('нет такой карточки')

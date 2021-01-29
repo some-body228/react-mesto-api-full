@@ -6,6 +6,7 @@ const removeLike = (req, res, next) => {
     { $pull: { likes: req.user._id } },
     { new: true }
   )
+  .populate('owner')
     .then((card) => {
       if(!card){
         throw new NotFoundError("нет такой карточки")
