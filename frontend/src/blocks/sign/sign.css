@@ -1,0 +1,22 @@
+@import url(./__button/sign__button.css);
+@import url(./__form/sign__form.css);
+@import url(./__input/sign__input.css);
+@import url(./__title/sign__title.css);
+@import url(./__caption/sign__caption.css);
+
+.sing{
+    width: 28%;
+    margin: 0 auto;
+    margin-top: 60px;
+}
+@media screen and (max-width:800px){
+    .sing{
+        width: 60%;
+        margin-top: 40px;
+    }
+}
+@media screen and (max-width:400px){
+    .sing{
+        width: 80%;
+    }
+}

@@ -1,0 +1,11 @@
+.header__caption_type_email{
+    font-weight: 500;
+}
+.header__caption_type_email:hover{
+    opacity: 1;
+}
+@media screen and (max-width: 400px){
+    .header__caption_type_email{
+        display: none;
+    }
+}

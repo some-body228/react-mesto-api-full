@@ -1,0 +1,6 @@
+@media screen and (max-width:420px){
+    .popup__exit-button_type_failed-sign-in{
+        right: 40%;
+        top: -45px
+    }
+}

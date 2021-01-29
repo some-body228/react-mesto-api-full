@@ -1,0 +1,29 @@
+@import url(./__list/elements__list.css);
+@import url(./__card/elements__card.css);
+@import url(./__title/elements__title.css);
+@import url(./__like-button/elements__like-button.css);
+@import url(./__image/elements__image.css);
+@import url(./__trash-button/elements__trash-button.css);
+@import url(./__like-number/elements__like-number.css);
+@import url(./__like-container/elements__like-container.css);
+
+.elements{
+    width: 69%;
+    margin: 47px auto 0;
+    max-width: 882px;
+}
+@media screen and (max-width: 1000px){
+    .elements{
+        width: 80%;
+    }
+}
+@media screen and (max-width: 800px){
+    .elements{
+        width: 90%;
+    }
+}
+@media screen and (max-width: 600px){
+    .elements{
+        width: 88%;
+    }
+}
