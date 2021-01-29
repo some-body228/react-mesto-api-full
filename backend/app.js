@@ -31,20 +31,20 @@ mongoose.connect("mongodb://localhost:27017/mestodb", {
 
 app.use(requestLogger)
 
-app.post("/signin", celebrate(
+app.post("/api/signin", celebrate(
   {body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required().min(8)
     })}), login)
-app.post("/signup", celebrate(
+app.post("/api/signup", celebrate(
   {body: Joi.object().keys({
     email: Joi.string().required().email(),
     password: Joi.string().required().min(8)
     })}), createUser)
 app.use(auth);
-app.use("/", cardRouter);
-app.use("/", userRouter);
-app.use("*", (req, res) => {
+app.use("/api/", cardRouter);
+app.use("/api/", userRouter);
+app.use("/api/*", (req, res) => {
   res.status(404).send({ message: "Запрашиваемый ресурс не найден" });
 });
 
