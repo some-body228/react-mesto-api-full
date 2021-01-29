@@ -3,8 +3,8 @@ const BadRequestError = require("../../errors/BadRequestError")
 const cardCreate = (req, res, next) => {
   const { name, link } = req.body;
   Card.create({ name, link, owner: req.user._id })
-  .populate('owner')
     .then((card) => {
+      card.owner._id =card.owner
       res.send(card);
     })
     .catch((err) => {
