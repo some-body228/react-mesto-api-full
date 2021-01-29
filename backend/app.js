@@ -7,6 +7,7 @@ const {requestLogger, errorLogger} = require("./middleware/logger")
 const cardRouter = require("./routes/cards");
 const userRouter = require("./routes/users");
 
+const cors = require("cors")
 const mongoose = require("mongoose");
 const auth = require("./middleware/auth")
 
@@ -22,7 +23,6 @@ const createUser = require("./controllers/users/create");
 
 const errMiddleware = require("./middleware/erorr")
 
-const cors = require("cors")
 
 mongoose.connect("mongodb://localhost:27017/mestodb", {
   useNewUrlParser: true,
