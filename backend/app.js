@@ -21,6 +21,8 @@ const createUser = require("./controllers/users/create");
 
 const errMiddleware = require("./middleware/erorr")
 
+const cors = require("cors")
+
 mongoose.connect("mongodb://localhost:27017/mestodb", {
   useNewUrlParser: true,
   useCreateIndex: true,
@@ -31,10 +33,7 @@ mongoose.connect("mongodb://localhost:27017/mestodb", {
 
 app.use(requestLogger)
 
-app.use((req, res, next)=>{
-  res.header("Access-Control-Allow-Origin", "https://nomoredomains.students.nomoredomains.rocks")
-  next()
-})
+app.use(cors())
 app.post("/signin", celebrate(
   {body: Joi.object().keys({
     email: Joi.string().required().email(),
