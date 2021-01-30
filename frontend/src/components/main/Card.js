@@ -5,7 +5,7 @@ function Card(props) {
   const isOwn = currentUser.id === props.curCard.owner._id;
   console.log(props.curCard)
   console.log(currentUser)
-  const isLiked = props.curCard.likes.some((i) => i._id === currentUser.id);
+  const isLiked = props.curCard.likes.some((i) => i === currentUser.id);
   function handleLikeClick() {
     props.onCardLike(props.curCard);
   }
