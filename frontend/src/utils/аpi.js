@@ -75,7 +75,7 @@ class api {
     }
   
     deleteCard(id) {
-      return fetch(`${this._url}/${id}/cards`, {
+      return fetch(`${this._url}/cards${id}`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem('jwt')}`,
