@@ -21,8 +21,8 @@ userRouter.get("/users/:id", celebrate({
 
 userRouter.patch("/users/me", celebrate(
   {body: Joi.object().keys({
-    name: Joi.string().required().min(2),
-    about: Joi.string().required().min(3),
+    name: Joi.string().required().min(2).pattern(/\s/, {invert: true}),
+    about: Joi.string().required().min(3).pattern(/\s/, {invert: true}),
   })}), updateUsers);
 userRouter.patch("/users/me/avatar",celebrate(
   {body: Joi.object().keys({

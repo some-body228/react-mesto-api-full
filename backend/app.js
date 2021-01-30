@@ -1,5 +1,9 @@
 const express = require("express");
 
+const regexp = /^https?:\/\/w*\.?[-\._~:\/?#\[\]@!\$&'()\*\+,;\w\d]+#?$/;
+
+const NotFoundError = require("./errors/NotFoundError")
+
 const{celebrate, Joi, errors} = require("celebrate")
 
 const {requestLogger, errorLogger} = require("./middleware/logger")
@@ -33,7 +37,8 @@ app.use(bodyParser.json());
 const login = require("./controllers/users/login")
 const createUser = require("./controllers/users/create");
 
-const errMiddleware = require("./middleware/erorr")
+const errMiddleware = require("./middleware/erorr");
+const { required } = require("joi");
 
 
 mongoose.connect("mongodb://localhost:27017/mestodb", {
@@ -59,14 +64,18 @@ app.post("/signin", celebrate(
     })}), login)
 app.post("/signup", celebrate(
   {body: Joi.object().keys({
+    name: Joi.string().min(2).pattern(/\s/, {invert: true}),
+    about: Joi.string().min(3).pattern(/\s/, {invert: true}),
+    avatar: Joi.string().pattern(regexp),
     email: Joi.string().required().email(),
-    password: Joi.string().required().min(8)
+    password: Joi.string().required().min(8).pattern(/\s/, {invert: true})
     })}), createUser)
 app.use(auth);
 app.use("/", cardRouter);
 app.use("/", userRouter);
-app.use("*", (req, res) => {
-  res.status(404).send({ message: "Запрашиваемый ресурс не найден" });
+app.use("*", (req, res, next) => {
+  next( new NotFoundError("Запрашиваемый ресурс не найден"))
+
 });
 app.use(errorLogger)
 
