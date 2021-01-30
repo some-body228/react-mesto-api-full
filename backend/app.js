@@ -20,7 +20,7 @@ const options = {
   'http://localhost:8080',
   'https://nomoredomains.students.nomoredomains.rocks',
   ],
-  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE'],
+  methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', "OPTION"],
   preflightContinue: false,
   optionsSuccessStatus: 204,
   allowedHeaders: ['Content-Type', 'origin', 'authorization'],
