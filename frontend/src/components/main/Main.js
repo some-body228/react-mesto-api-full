@@ -32,7 +32,7 @@ function Main(props) {
     .catch(err=>{console.log(err.message)})
   }, []);
   function handleCardLike(card) {
-    const isLiked = card.likes.some((i) => i._id === currentUser.id);
+    const isLiked = card.likes.some((i) => i === currentUser.id);
     if (!isLiked) {
       mainApi.likeCard(card._id).then((newCard) => setNewLikesCallback(newCard));
     } else {
