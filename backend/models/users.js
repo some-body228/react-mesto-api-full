@@ -1,4 +1,6 @@
+
 const mongoose = require("mongoose");
+
 const str = /^https?:\/\/w*\.?[-\._~:\/?#\[\]@!\$&'()\*\+,;\w\d]+#?$/;
 const validator = require('validator');
 const userSchema = new mongoose.Schema({

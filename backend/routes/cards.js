@@ -1,3 +1,4 @@
+const regexp = /^https?:\/\/w*\.?[-\._~:\/?#\[\]@!\$&'()\*\+,;\w\d]+#?$/;
 const{celebrate, Joi} = require("celebrate")
 
 const cardRouter = require("express").Router();
@@ -12,10 +13,19 @@ cardRouter.get("/cards", cardsGet);
 cardRouter.post("/cards",celebrate(
   {body: Joi.object().keys({
     name: Joi.string().required().min(2),
-    link: Joi.string().required()
+    link: Joi.string().required().pattern(regexp)
   })}), cardCreate);
-cardRouter.delete("/cards/:id", cardDelete);
-cardRouter.put("/cards/likes/:id", addLike);
-cardRouter.delete("/cards/likes/:id", removeLike);
+cardRouter.delete("/cards/:id", celebrate({
+  params: Joi.object().keys({
+    id : Joi.string().required().length(24).hex()
+  })}), cardDelete);
+cardRouter.put("/cards/:id/likes", celebrate({
+  params: Joi.object().keys({
+    id : Joi.string().required().length(24).hex()
+  })}), addLike);
+cardRouter.delete("/cards/:id/likes", celebrate({
+  params: Joi.object().keys({
+    id : Joi.string().required().length(24).hex()
+  })}), removeLike);
 
 module.exports = cardRouter;

@@ -1,3 +1,5 @@
+const regexp = /^https?:\/\/w*\.?[-\._~:\/?#\[\]@!\$&'()\*\+,;\w\d]+#?$/;
+
 const{celebrate, Joi} = require("celebrate")
 
 const userRouter = require("express").Router();
@@ -12,7 +14,10 @@ const getUserInfo = require("../controllers/users/getUserInfo");
 
 userRouter.get("/users", get);
 userRouter.get("/users/me", getUserInfo);
-userRouter.get("/users/:id", getOne);
+userRouter.get("/users/:id", celebrate({
+  params: Joi.object().keys({
+    id : Joi.string().required().length(24).hex()
+  })}), getOne);
 
 userRouter.patch("/users/me", celebrate(
   {body: Joi.object().keys({
@@ -21,7 +26,7 @@ userRouter.patch("/users/me", celebrate(
   })}), updateUsers);
 userRouter.patch("/users/me/avatar",celebrate(
   {body: Joi.object().keys({
-    avatar: Joi.string().required()
+    avatar: Joi.string().required().pattern(regexp)
   })}), updateAvatar);
 
 

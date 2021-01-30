@@ -75,7 +75,7 @@ class api {
     }
   
     deleteCard(id) {
-      return fetch(`${this._url}/cards/${id}`, {
+      return fetch(`${this._url}/${id}/cards`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem('jwt')}`,
@@ -86,7 +86,7 @@ class api {
       }).then(this._getResponseData);
     }
     likeCard(id) {
-      return fetch(`${this._url}/cards/likes/${id}`, {
+      return fetch(`${this._url}/cards/${id}/likes`, {
         method: "PUT",
         headers: {
           authorization: `Bearer ${localStorage.getItem('jwt')}`,
@@ -98,7 +98,7 @@ class api {
     }
   
     dislikeCard(id) {
-      return fetch(`${this._url}/cards/likes/${id}`, {
+      return fetch(`${this._url}/cards/${id}/likes`, {
         method: "DELETE",
         headers: {
           authorization: `Bearer ${localStorage.getItem('jwt')}`,
