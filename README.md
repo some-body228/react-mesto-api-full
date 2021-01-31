@@ -3,3 +3,4 @@
   
 Фронтэнд - https://nomoredomains.students.nomoredomains.rocks/sign-up
 бэкэнд - https://api.subdomain.students.nomoredomains.rocks
+публичный IP - 84.201.128.74
