@@ -1,6 +1,7 @@
-const User = require("../../models/users");
-const NotFoundError = require("../../errors/NotFoundError")
-const BadRequestError = require("../../errors/BadRequestError")
+const User = require('../../models/users');
+const NotFoundError = require('../../errors/NotFoundError');
+const BadRequestError = require('../../errors/BadRequestError');
+
 const updateAvatar = (req, res, next) => {
   const { avatar } = req.body;
   User.findByIdAndUpdate(
@@ -10,19 +11,19 @@ const updateAvatar = (req, res, next) => {
       new: true,
       runValidators: true,
       upsert: false,
-    }
+    },
   )
     .then((user) => {
-      if(!user){
-        throw new NotFoundError("нет такого пользователя")
+      if (!user) {
+        throw new NotFoundError('нет такого пользователя');
       }
       res.send(user);
     })
     .catch((err) => {
-      if (err.name === "ValidationError") {
-        next(new BadRequestError("ValidationError"))
+      if (err.name === 'ValidationError') {
+        next(new BadRequestError('ValidationError'));
       } else {
-        next(err)
+        next(err);
       }
     });
 };
