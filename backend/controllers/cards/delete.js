@@ -8,7 +8,8 @@ const cardDelete = (req, res, next) => {
       if (!card) {
         throw new NotFoundError('нет такой карточки');
       }
-      if (!(card.owner === req.user._id)) {
+      // eslint-disable-next-line eqeqeq
+      if (!(card.owner == req.user._id)) {
         throw new NoRightError('пользователь может удалить только свою карточку');
       }
       Card.findByIdAndRemove(req.params.id)
