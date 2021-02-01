@@ -1,12 +1,12 @@
 const express = require('express');
 
+// eslint-disable-next-line no-useless-escape
 const regexp = /^https?:\/\/w*\.?[-\._~:\/?#\[\]@!\$&'()\*\+,;\w\d]+#?$/;
 
 const { celebrate, Joi, errors } = require('celebrate');
 const cors = require('cors');
 const mongoose = require('mongoose');
 const bodyParser = require('body-parser');
-const { required } = require('joi');
 const NotFoundError = require('./errors/NotFoundError');
 
 const { requestLogger, errorLogger } = require('./middleware/logger');
@@ -87,5 +87,6 @@ app.use(errors());
 app.use(errMiddleware);
 
 app.listen(PORT, () => {
+  // eslint-disable-next-line no-console
   console.log(`App listening on port ${PORT}`);
 });

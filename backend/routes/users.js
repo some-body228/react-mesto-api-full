@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-useless-escape
 const regexp = /^https?:\/\/w*\.?[-\._~:\/?#\[\]@!\$&'()\*\+,;\w\d]+#?$/;
 
 const { celebrate, Joi } = require('celebrate');

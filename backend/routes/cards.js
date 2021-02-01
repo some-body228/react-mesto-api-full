@@ -1,8 +1,8 @@
+// eslint-disable-next-line no-useless-escape
 const regexp = /^https?:\/\/w*\.?[-\._~:\/?#\[\]@!\$&'()\*\+,;\w\d]+#?$/;
 const { celebrate, Joi } = require('celebrate');
 
 const cardRouter = require('express').Router();
-const Card = require('../models/cards');
 const cardCreate = require('../controllers/cards/create');
 const cardDelete = require('../controllers/cards/delete');
 const cardsGet = require('../controllers/cards/get');

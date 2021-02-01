@@ -8,13 +8,13 @@ const cardCreate = (req, res, next) => {
     .then((card) => {
       User.findById(card.owner)
         .then((user) => {
-          console.log(user);
+          // eslint-disable-next-line no-param-reassign
           card.owner = user;
           res.send(card);
         });
     })
     .catch((err) => {
-      if (err.name == 'ValidationError') {
+      if (err.name === 'ValidationError') {
         next(new BadRequestError('ValidationError'));
       } else {
         next(err);
