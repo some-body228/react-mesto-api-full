@@ -21,6 +21,7 @@ const options = {
     'http://localhost:8080',
     'http://localhost:3000',
     'https://nomoredomains.students.nomoredomains.rocks',
+    'https://some-body228.github.io/react-mesto-api-full/frontend/',
   ],
   methods: ['GET', 'HEAD', 'PUT', 'PATCH', 'POST', 'DELETE', 'OPTION'],
   preflightContinue: false,
